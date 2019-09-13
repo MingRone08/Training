@@ -3,6 +3,13 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Form-signup</title>
+	<style type="text/css">
+		.btn {
+		    position: fixed;
+		    top: 210px;
+		    left: 7%;
+		}
+	</style>
 </head>
 <body>
 	<form action="/Work/product-regis/1.php" method="POST" enctype="multipart/form-data">
@@ -19,6 +26,9 @@
 		    <br>
 		    <button type="submit" name="submit">UPLOAD</button>
 	  	</fieldset>
+	</form>
+	<form action="/Work/product-regis/display.php" method="POST" enctype="multipart/form-data" class="btn">
+		<button type="submit" name="submit">DISPLAY</button>
 	</form>
 </body>
 </html>

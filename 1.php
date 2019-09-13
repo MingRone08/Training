@@ -19,23 +19,31 @@ if($link === false){
 }
  
 // Print host information
-echo "Connect Successfully. Host info: " . mysqli_get_host_info($link);
+//echo "Connect Successfully. Host info: " . mysqli_get_host_info($link);
 
 if(isset($_POST['submit'])){
 	$target = "product/".basename($_FILES['image']['name']);
 	$image = $_FILES['image']['name'];
 
 
-	$sql = "INSERT INTO `product`(`product_name`, `price`, `img`) VALUES ('$Product_name','$Price','$image')";
-	mysqli_query($link, $sql);
+	try {
+		$sql = "INSERT INTO `product`(`product_name`, `price`, `image`) VALUES ('$Product_name','$Price','$image')";
+    	mysqli_query($link, $sql);
+	} catch (Exception $e) {
+    	echo 'Caught exception: ',  $e->getMessage(), "\n";
+	}
+		
+
 
 	if(move_uploaded_file($_FILES['image']['tmp_name'], $target)){
 		$msg = "Successfully";
 	}else{
 		$msg = "There was a problem";
 	}
+	echo $msg . "<br>";
+	echo "Return to the previous page to display items";
 
-	echo $msg;
+	}
 
-}
+
 ?>
