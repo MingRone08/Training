@@ -30,9 +30,10 @@
         $sql = "SELECT * FROM  product";
         $result = mysqli_query($link, $sql);
         $number_of_result = mysqli_num_rows($result);
-        
+
 
         $number_of_pages = ceil($number_of_result/$result_per_pages);
+
 
         if(!isset($_GET['page'])){
             $page = 1;
@@ -48,7 +49,7 @@
         ?>
             <div class="paging">
                 <?php
-                    for($page=1;$page<$number_of_pages;$page++){
+                    for($page=1;$page<=$number_of_pages;$page++){
                         echo '<a href="/demo2/display.php?page='. $page .'">' . $page . '</a>';
                     }
                 ?>

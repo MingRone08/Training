@@ -1,0 +1,50 @@
+*{margin: 0px; padding: 0px;}
+
+.row a {
+    text-decoration: none;
+    color: blue;
+    cursor: pointer;
+}
+
+.paging {
+    left: 47%;
+    position: fixed;
+    bottom: 0px;
+    display: inline-block;
+}
+
+.paging a {
+    padding: 10px;
+    border: 1px solid blue;
+    text-align: center;
+    text-decoration: none;
+}
+
+th {
+    border: 1px solid black;
+    border-collapse: collapse;
+    color: white;
+    background: #5b5b5b;
+}
+
+.row {
+	width: 100px;
+	height: 100px;
+}
+
+.row td {
+    height: 200px;
+    width: 200px;
+    text-align: center;
+    border: 1px solid;
+    border-collapse: collapse;
+}
+
+.row td img {
+    width: 100px;
+    height: 100px;
+}
+
+table {
+    margin: auto;
+}

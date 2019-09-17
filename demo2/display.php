@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<title>Display Image</title>
-		<link rel="stylesheet" type="text/css" href="Style/css/display.css">
+		<link rel="stylesheet" type="text/css" href="Style/css/DP.css">
 	</head>
 	<body>
 		<table>
@@ -12,6 +12,7 @@
 					<th>Price</th>
 					<th>Image</th>
 					<th>Edit</th>
+					<th>Delete</th>
 				</tr>
 			</thead>
 			<?php
@@ -35,6 +36,9 @@
 							</td>
 							<td>
 								<?php echo '<a href="/demo2/edit.php?edit='. $row[0] . '">Edit</a>' ; ?> 
+							</td>
+							<td>
+								<?php echo '<a href="/demo2/delete.php?delete='. $row[0] .'">Delete</a>'?>
 							</td>
 						</tr>
 
