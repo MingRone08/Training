@@ -28,19 +28,19 @@ $router = new Core\Router();
 // Add the routes
 $router->add('', ['controller' => 'Home', 'action' => 'index']);
 $router->add('{controller}/{action}');
-$router->add('Home', ['controller' => 'Home', 'action' => 'index']);
+$router->add('home', ['controller' => 'Home', 'action' => 'index']);
 $router->add('{controller}/{action}');
 //$router->add('posts/index', ['controller' => 'Posts', 'action' => 'index']);
-$router->add('Add', ['controller' => 'Home', 'action' => 'add']);
+$router->add('add', ['controller' => 'Home', 'action' => 'add']);
 $router->add('{controller}/{action}');
 
-$router->add('Delete', ['controller' => 'Home', 'action' => 'delete']);
+$router->add('delete', ['controller' => 'Home', 'action' => 'delete']);
 $router->add('{controller}/{action}');
 
-$router->add('Filter', ['controller' => 'Home', 'action' => 'filter']);
+$router->add('filter', ['controller' => 'Home', 'action' => 'filter']);
 $router->add('{controller}/{action}');
 
-$router->add('Edit', ['controller' => 'Home', 'action' => 'edit']);
+$router->add('edit', ['controller' => 'Home', 'action' => 'edit']);
 $router->add('{controller}/{action}');
 
 

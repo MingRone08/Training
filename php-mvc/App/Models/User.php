@@ -12,6 +12,8 @@ use PDO;
 class User extends \Core\Model
 {
 
+    //public $method = ''; /* This variable use for AJAX recognition */
+
     /**
      * Get all the users as an associative array
      *
@@ -24,6 +26,13 @@ class User extends \Core\Model
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public static function getNewProduct()
+    {
+        $db = static::getDB();
+        $res = $db->query('SELECT * FROM product ORDER BY product_id ASC');
+        return $res->fetchAll(PDO::FETCH_ASSOC);
+    } 
+
     public static function getProduct($id)
     {
         $db = static::getDB();
@@ -31,10 +40,10 @@ class User extends \Core\Model
         return $result->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public static function addProduct($name, $price, $image)
+    public static function addProduct($name, $price)
     {
         $db = static::getDB();
-        $sql = "INSERT INTO `product`(`product_name`, `price`, `image`) VALUES ('$name', '$price', '$image')";
+        $sql = "INSERT INTO `product`(`product_name`, `price`) VALUES ('$name', '$price')";
         if ($db->exec($sql) === false){
             echo "Can't";
         }
@@ -134,4 +143,5 @@ class User extends \Core\Model
         move_uploaded_file($_FILES['new_image']['tmp_name'], $target);
         $res = $db->query($sql);
     }
+
 }

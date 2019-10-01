@@ -28,18 +28,18 @@ class Home extends \Core\Controller
 
     public function addAction()
     {
-        if (!isset($_POST['submit']))
-        {
-            View::render('Home/form-add-product.phtml');
-        }
-        else
-        {
-            $target = $target = "image/".basename($_FILES['image']['name']);
-            $image = $_FILES['image']['name'];
-            move_uploaded_file($_FILES['image']['tmp_name'], $target);
-            User::addProduct($_POST['Product_name'], $_POST['Price'], $image);
-            header("location:Home",true,301);
-        }	
+        //$target = $target = "image/".basename($_FILES['image']['name']);
+        //$image = $_FILES['image']['name'];
+        //move_uploaded_file($_FILES['image']['tmp_name'], $target);
+        $json = json_decode(file_get_contents("php://input"));
+        User::addProduct($json->p_name, $json->p_price);
+        //var_dump($json);
+        //exit();
+        $result = User::getAll();
+        header("Content-type: application/json");
+        echo json_encode( $result );
+        die;
+        View::render('Home/index.phtml', $result);
     }
 
     public function deleteAction()
